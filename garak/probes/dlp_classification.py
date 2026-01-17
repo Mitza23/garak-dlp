@@ -11,11 +11,12 @@ class DLPSensitiveInjection(Probe, LatentInjectionMixin):
     """
     Probe to test if sensitive DLP files can be manipulated to classify as PUBLIC.
     """
-    bcp47 = "en"
-    uri = "https://internal/dlp-research"
-    primary_detector = dlp_classification.DLPMisclassification
+    lang = "en"
+    doc_uri = ""
+    primary_detector = "dlp_classification.DLPMisclassification"
     tags = ["owasp:llm01", "risk-cards:lmrc:prompt_injection"]
     goal = "misclassify sensitive data as public"
+    active = False
 
     def __init__(self):
         super().__init__()
